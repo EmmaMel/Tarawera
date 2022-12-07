@@ -24,7 +24,10 @@ RUN rm requirements.txt
 
 RUN git clone --depth 1 https://github.com/EmmaMel/Tarawera.git --branch APT29 
 
-RUN rm APT29.yaml
+
+RUN cp Tarawera/requirements.txt .
+
+RUN rm -R Tarawera
 
 # Install pip requirements
 RUN pip3 install --no-cache-dir -r requirements.txt
@@ -72,13 +75,13 @@ WORKDIR /usr/src/app/plugins/emu
 
 Run ./download_payloads.sh
 
-WORKDIR /usr/src/app/plugins/emu/data/adversary-emulation-plans/apt29/Emulation_Plan/yaml
+#WORKDIR /usr/src/app/plugins/emu/data/adversary-emulation-plans/apt29/Emulation_Plan/yaml
 
 #RUN rm APT29.yaml
 
-RUN git clone --depth 1 https://github.com/EmmaMel/Tarawera.git --branch APT29
+#RUN git clone --depth 1 https://github.com/EmmaMel/Tarawera.git --branch APT29
 
-RUN rm requirements.txt
+#RUN rm requirements.txt
 
 WORKDIR /usr/src/app
 
