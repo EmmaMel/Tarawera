@@ -74,7 +74,7 @@ Run ./download_payloads.sh
 
 WORKDIR /usr/src/app/plugins/emu/data/adversary-emulation-plans/apt29/Emulation_Plan/yaml
 
-RUN rm APT29.yaml
+#RUN rm APT29.yaml
 
 RUN git clone --depth 1 https://github.com/EmmaMel/Tarawera.git --branch APT29
 
