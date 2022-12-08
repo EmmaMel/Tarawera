@@ -59,8 +59,9 @@ git clone https://github.com/mitre/caldera.git --recursive --branch 4.1.0
 cd caldera
 rm Dockerfile
 cd -
-cp Dockerfile caldera/Dockerfile
-cd caldera
+cd -
+cp Dockerfile Tarawera/caldera/Dockerfile
+cd Tarawera/caldera
 
 # Update passwords
 sed -i '/^users\:/q' conf/default.yml
