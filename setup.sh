@@ -79,15 +79,13 @@ sed -i "/users\:/ s/.*/users\:\n  blue\:\n    blue\: ${bluepasswordvar}\n  red\:
 #docker build . --build-arg WIN_BUILD=true -t mitre/caldera
 #sudo docker run -it -d --name ${containernamevar} --hostname ${containernamevar} -p 7010:7010 -p 7011:7011 -p 7012:7012 -p 8888:8888 mitre/caldera
 docker build . --build-arg WIN_BUILD=true -t caldera:latest
-
-docker run -it -d --name ${containernamevar} --hostname ${containernamevar}
-docker run -p 8888:8888 caldera:latest
+docker run -it -d --name ${containernamevar} --hostname ${containernamevar} -p 7010:7010 -p 7011:7011 -p 7012:7012 -p 8888:8888 caldera:latest
 sleep 10
 
 # Update and restart Docker
 docker exec ${containernamevar} bash -c "apt-get update"
 docker exec ${containernamevar} bash -c "apt-get upgrade"
-#docker exec -it ${containernamevar} bash -c "apt-get install upx -y"
+docker exec -it ${containernamevar} bash -c "apt-get install upx -y"
 docker update --restart=always ${containernamevar}
 sleep 5
 docker container restart ${containernamevar}
@@ -95,6 +93,6 @@ sleep 5
 
 echo "-------------------------------------------------------------------------------"
 echo "Tarawera installation complete!.......";
-echo "Navigate to http://localhost:8888/ to access the web console.
-echo "Login details can be found in TaraweraCaldera/caldera/conf/default.yml"
+echo "Navigate to http://localhost:8888/ to access the web console."
+echo "Login details can be found in mitreCaldera/caldera/conf/default.yml"
 echo "-------------------------------------------------------------------------------"
