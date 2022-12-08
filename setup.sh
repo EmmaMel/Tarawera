@@ -44,13 +44,14 @@ echo "--------------------------------------------------------------------------
 
 
 # Check for docker, progress if located otherwise exit
-if docker version ; then
-  echo "Docker Found, Continuing"
-else
-  #echo "Docker not found. Please install Docker and try again"
+if ! docker version ; then
+   #echo "Docker not found. Please install Docker and try again"
   echo "Docker not found. Installing Docker....."
   snap install docker
   #exit 1
+
+elif docker version ; then
+  echo "Docker Found, Continuing"
 fi
 
 mkdir TaraweraCaldera
