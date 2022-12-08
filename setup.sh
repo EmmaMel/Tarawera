@@ -60,7 +60,7 @@ cd caldera
 rm Dockerfile
 cd -
 cd -
-cp Dockerfile Tarawera/caldera/Dockerfile
+cp Dockerfile Tarawera/caldera/
 cd Tarawera/caldera
 
 # Update passwords
