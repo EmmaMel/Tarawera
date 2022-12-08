@@ -59,8 +59,7 @@ cd TaraweraCaldera
 git clone https://github.com/mitre/caldera.git --recursive --branch 4.1.0
 cd caldera
 rm Dockerfile
-cd -
-cd -
+cd ../..
 cp Dockerfile TaraweraCaldera/caldera/
 cd TaraweraCaldera/caldera
 
