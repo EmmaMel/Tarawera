@@ -60,8 +60,8 @@ cd caldera
 rm Dockerfile
 cd -
 cd -
-cp Dockerfile Tarawera/caldera/
-cd Tarawera/caldera
+cp Dockerfile TaraweraCaldera/caldera/
+cd TaraweraCaldera/caldera
 
 # Update passwords
 sed -i '/^users\:/q' conf/default.yml
