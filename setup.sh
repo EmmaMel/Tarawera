@@ -84,7 +84,7 @@ sleep 10
 
 # Update and restart Docker
 docker exec ${containernamevar} bash -c "apt-get update"
-docker exec ${containernamevar} bash -c "apt-get upgrade"
+docker exec ${containernamevar} bash -c "apt-get upgrade -y"
 docker exec -it ${containernamevar} bash -c "apt-get install upx -y"
 docker update --restart=always ${containernamevar}
 sleep 5
