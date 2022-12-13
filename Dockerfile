@@ -8,13 +8,13 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 WORKDIR /usr/src/app
 
 # Make sure user cloned caldera recursively before installing anything.
-ADD . .
-RUN if [ -z "$(ls plugins/stockpile)" ]; then echo "stockpile plugin not downloaded - please ensure you recursively cloned the caldera git repository and try again."; exit 1; fi
+#ADD . .
+#RUN if [ -z "$(ls plugins/stockpile)" ]; then echo "stockpile plugin not downloaded - please ensure you recursively cloned the caldera git repository and try again."; exit 1; fi
 
 RUN apt-get update && \
-    apt-get -y install python3 python3-pip git curl
+    apt-get -y install python3 python3-pip git curl zip unzip upx haproxy zlib1g -y
 
-RUN apt install zip unzip upx haproxy zlib1g -y
+#RUN apt install zip unzip upx haproxy zlib1g -y
 
 #WIN_BUILD is used to enable windows build in sandcat plugin
 ARG WIN_BUILD=false
@@ -49,7 +49,7 @@ RUN if [ "$WIN_BUILD" = "true" ] ; then cp ./update-agents.sh ./update-agents-co
 RUN if [ "$WIN_BUILD" = "true" ] ; then tr -d '\15\32' < ./update-agents-copy.sh > ./update-agents.sh; fi
 RUN if [ "$WIN_BUILD" = "true" ] ; then rm ./update-agents-copy.sh; fi
 
-RUN ./update-agents.sh
+#RUN ./update-agents.sh
 
 # Check if we can compile the sandcat extensions, which will download golang dependencies for agent extensions
 RUN mkdir /tmp/gocatextensionstest
