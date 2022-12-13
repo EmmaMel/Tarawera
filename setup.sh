@@ -67,6 +67,15 @@ cd TaraweraCaldera/caldera
 sed -i '/^users\:/q' conf/default.yml
 sed -i "/users\:/ s/.*/users\:\n  blue\:\n    blue\: ${bluepasswordvar}\n  red\:\n    red\: ${redpasswordvar}/" conf/default.yml
 
+cd plugins/sandcat
+./update-agents.sh
+
+cd ../
+cd emu
+./download_payloads.sh
+
+cd ../..
+
 # Pull Caldera Docker Image
 # if docker pull mitre/caldera ; then
 #   echo "Docker Caldera Image pull successful"
@@ -79,7 +88,8 @@ sed -i "/users\:/ s/.*/users\:\n  blue\:\n    blue\: ${bluepasswordvar}\n  red\:
 #docker build . --build-arg WIN_BUILD=true -t mitre/caldera
 #sudo docker run -it -d --name ${containernamevar} --hostname ${containernamevar} -p 7010:7010 -p 7011:7011 -p 7012:7012 -p 8888:8888 mitre/caldera
 docker build . --build-arg WIN_BUILD=true -t caldera:latest
-docker run -it -d --name ${containernamevar} --hostname ${containernamevar} -p 7010:7010 -p 7011:7011 -p 7012:7012 -p 8888:8888 caldera:latest
+#docker run -it -d --name ${containernamevar} --hostname ${containernamevar} -p 7010:7010 -p 7011:7011 -p 7012:7012 -p 8888:8888 caldera:latest
+docker run -it -d --name ${containernamevar} --hostname ${containernamevar} --volume conf:/usr/src/app/conf -p 7010:7010 -p 7011:7011 -p 7012:7012 -p 8888:8888 caldera:latest
 sleep 10
 
 # Update and restart Docker
