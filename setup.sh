@@ -41,22 +41,22 @@ echo "--------------------------------------------------------------------------
 #git clone https://github.com/EmmaMel/Tarawera.git --recursive --branch Automate
 #cd Tarawera
 
-sed -i '/^users\:/q' conf/default.yml
-sed -i "/users\:/ s/.*/users\:\n  blue\:\n    blue\: ${bluepasswordvar}\n  red\:\n    red\: ${redpasswordvar}/" conf/default.yml
 
 
 git clone https://github.com/mitre/caldera.git --recursive --branch 4.1.0
 cd caldera
 rm requirements.txt
 rm server.py
-cd conf
-rm default.yml
+sed -i '/^users\:/q' conf/default.yml
+sed -i "/users\:/ s/.*/users\:\n  blue\:\n    blue\: ${bluepasswordvar}\n  red\:\n    red\: ${redpasswordvar}/" conf/default.yml
+
+
 cd ../
-cd ../
+
 cp requirements.txt caldera/
 cp server.py caldera/
-cp default.yml caldera/conf/
-cp default.yml caldera/conf/local.yml
+#cp default.yml caldera/conf/
+#cp default.yml caldera/conf/local.yml
 cd caldera
 pip3 install -r requirements.txt 
 cd plugins/emu
