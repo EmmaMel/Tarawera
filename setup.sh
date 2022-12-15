@@ -51,7 +51,8 @@ rm requirements.txt
 rm server.py
 cd conf
 rm default.yml
-cd ../..
+cd ../
+cd ../
 cp requirements.txt caldera/
 cp server.py caldera/
 cp default.yml caldera/conf/
