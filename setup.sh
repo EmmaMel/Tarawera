@@ -38,8 +38,8 @@ echo "Tarawera installing.......";
 echo "-------------------------------------------------------------------------------"
 
 
-git clone https://github.com/EmmaMel/Tarawera.git --recursive --branch Automate
-cd Tarawera
+#git clone https://github.com/EmmaMel/Tarawera.git --recursive --branch Automate
+#cd Tarawera
 
 sed -i '/^users\:/q' conf/default.yml
 sed -i "/users\:/ s/.*/users\:\n  blue\:\n    blue\: ${bluepasswordvar}\n  red\:\n    red\: ${redpasswordvar}/" conf/default.yml
