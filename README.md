@@ -22,7 +22,7 @@ If installing on a Windows host, ensure you have the following packages installe
 
 Concise installation steps:
 ```Bash
-git clone https://github.com/EmmaMel/Tarawera.git --recursive --branch AutomateDockerTest
+git clone https://github.com/EmmaMel/Tarawera.git --recursive --branch Automate
 cd Tarawera
 chmod +x setup.sh
 sudo ./setup.sh
