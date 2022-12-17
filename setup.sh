@@ -67,7 +67,9 @@ cd builder
 #bash -c './install.sh'
 #setsid install.sh >/dev/null 2>&1 < /dev/null &
 #( exec "${pluginDirectory}/builder/install.sh" )
-gnome-terminal -e "bash -c ~/install.sh;bash"
+#gnome-terminal -e "bash -c ~/install.sh;bash"
+bash --rcfile <(echo '. ~/install.sh;bash')
+#yes | ./install_packages.sh pkgs.txt
 cd $pluginDirectory
 #cd../
 cd sandcat
