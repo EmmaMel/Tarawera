@@ -62,15 +62,32 @@ pip3 install -r requirements.txt
 cd plugins/emu
 ./download_payloads.sh
 cd ../
-pluginDirectory=$(pwd) >> /dev/null
-cd builder
+#pluginDirectory=$(pwd) >> /dev/null
+#cd builder
+sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' /etc/needrestart/needrestart.conf
 #bash -c './install.sh'
 #setsid install.sh >/dev/null 2>&1 < /dev/null &
 #( exec "${pluginDirectory}/builder/install.sh" )
 #gnome-terminal -e "bash -c ~/install.sh;bash"
-bash --rcfile <(echo '. ~/install.sh;bash')
+USER=$(printf '%s\n' "${SUDO_USER:-$USER}")
+
+
+
+usermod $USER -a -G docker
+apt-get remove -y docker docker-engine docker.io containerd runc
+apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
+apt-get update && apt-get install -y docker-ce docker-ce-cli containerd.io
+
+
+
+#bash --rcfile <(echo '. ~/install.sh;bash')
+
+
+#bash --rcfile <(echo '$pluginDirectory/builder/install.sh;bash')
 #yes | ./install_packages.sh pkgs.txt
-cd $pluginDirectory
+#cd $pluginDirectory
 #cd../
 cd sandcat
 ./update-agents.sh
