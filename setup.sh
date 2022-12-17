@@ -62,6 +62,7 @@ pip3 install -r requirements.txt
 cd plugins/emu
 ./download_payloads.sh
 cd ../
+cp -r emu/payloads/* emu/data/adversary-emulation-plans/*
 #pluginDirectory=$(pwd) >> /dev/null
 #cd builder
 sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' /etc/needrestart/needrestart.conf
