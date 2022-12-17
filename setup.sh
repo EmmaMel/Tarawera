@@ -27,7 +27,7 @@ while true; do
 done
 
 
-apt-get update && apt-get -y install python3 python3-pip git curl zip unzip upx golang haproxy zlib1g -y
+apt-get update && apt-get -y install python3 python3-pip git curl zip unzip upx golang haproxy zlib1g docker -y
 
 echo "Red Team Password: "
 read -s redpasswordvar
