@@ -66,7 +66,7 @@ pluginDirectory=$(pwd) >> /dev/null
 cd builder
 #bash -c './install.sh'
 #setsid install.sh >/dev/null 2>&1 < /dev/null &
-( exec "install.sh" )
+( exec "${pluginDirectory}/builder/install.sh" )
 #gnome-terminal -e "bash -c ~/install.sh;bash"
 cd $pluginDirectory
 #cd../
