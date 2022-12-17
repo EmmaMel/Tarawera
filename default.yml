@@ -35,7 +35,6 @@ plugins:
 - emu
 - fieldmanual
 - gameboard
-- human
 - manx
 - response
 - sandcat
