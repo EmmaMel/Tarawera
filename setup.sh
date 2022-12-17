@@ -2,10 +2,14 @@
 
 # Author: Emma Taumoepeau
 
+
 if [ "$EUID" -ne 0 ];then
     echo "Please run this script as root"
     exit 1
 fi
+
+
+homeDirectory=$(pwd) >> /dev/null
 
 
 echo "-------------------------------------------------------------------------------"
@@ -47,6 +51,7 @@ sed -i "/users\:/ s/.*/users\:\n  blue\:\n    blue\: ${bluepasswordvar}\n  red\:
 
 git clone https://github.com/mitre/caldera.git --recursive --branch 4.1.0
 cd caldera
+calderaDirectory=$(pwd) >> /dev/null
 rm requirements.txt
 rm server.py
 git clone --depth 1 https://github.com/center-for-threat-informed-defense/adversary_emulation_library.git plugins/emu/data/adversary-emulation-plans
@@ -57,7 +62,7 @@ rm default.yml
 #sed -i "/users\:/ s/.*/users\:\n  blue\:\n    blue\: ${bluepasswordvar}\n  red\:\n    red\: ${redpasswordvar}/" conf/default.yml
 
 
-cd ../..
+cd $homeDirectory
 cp default.yml caldera/conf/
 cp requirements.txt caldera/
 cp server.py caldera/
@@ -105,6 +110,11 @@ cd sandcat
 cd ../
 cp -r emu/payloads/* emu/data/adversary-emulation-plans/*
 cd ../
+cd plugins/emu/data/adversary-emulation-plans/apt29/Emulation_Plan/yaml
+rm APT29.yaml
+cd $homeDirectory
+cp APT29.yaml caldera/plugins/emu/data/adversary-emulation-plans/apt29/Emulation_Plan/yaml/
+cd $calderaDirectory
 
 echo "-------------------------------------------------------------------------------"
 echo "Tarawera installation complete!.......";
