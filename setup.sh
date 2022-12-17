@@ -75,21 +75,21 @@ cd ../
 
 #pluginDirectory=$(pwd) >> /dev/null
 #cd builder
-sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' /etc/needrestart/needrestart.conf
+#sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' /etc/needrestart/needrestart.conf
 #bash -c './install.sh'
 #setsid install.sh >/dev/null 2>&1 < /dev/null &
 #( exec "${pluginDirectory}/builder/install.sh" )
 #gnome-terminal -e "bash -c ~/install.sh;bash"
-USER=$(printf '%s\n' "${SUDO_USER:-$USER}")
+#USER=$(printf '%s\n' "${SUDO_USER:-$USER}")
 
 
 
-usermod $USER -a -G docker
-apt-get remove -y docker docker-engine docker.io containerd runc
-apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable' -y
-apt-get update && apt-get install -y docker-ce docker-ce-cli containerd.io
+#usermod $USER -a -G docker
+#apt-get remove -y docker docker-engine docker.io containerd runc
+#apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+#add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable' -y
+#apt-get update && apt-get install -y docker-ce docker-ce-cli containerd.io
 
 
 
@@ -109,7 +109,11 @@ cd ../
 echo "-------------------------------------------------------------------------------"
 echo "Tarawera installation complete!.......";
 echo "Navigate to http://localhost:8888/ to access the web console."
-echo "Login details can be found in mitreCaldera/caldera/conf/default.yml"
+echo "Login details can be found in Tarawera/caldera/conf/default.yml"
+echo "To gracefully terminate the server, enter:"
+echo "   Ctrl C"
+echo "To restart the server, navigate to Tarawera/caldera/ and enter:"
+echo "   python3 server.py"
 echo "-------------------------------------------------------------------------------"
 
 python3 server.py
