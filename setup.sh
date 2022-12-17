@@ -62,6 +62,9 @@ pip3 install -r requirements.txt
 cd plugins/emu
 ./download_payloads.sh
 cd ../
+cd builder
+./install.sh
+cd../
 cd sandcat
 ./update-agents.sh
 cd ../..
