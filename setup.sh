@@ -109,4 +109,11 @@ echo "--------------------------------------------------------------------------
 
 python3 server.py
 
+#if ./test1.sh | grep -q 'ITdept'; 
+if grep -q 'All systems ready.'; 
+then
+    echo "found"
+else
+    echo "Not found"
+fi
 
