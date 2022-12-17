@@ -63,7 +63,8 @@ cd plugins/emu
 ./download_payloads.sh
 cd ../
 cd builder
-bash -c './install.sh'
+#bash -c './install.sh'
+setsid install.sh >/dev/null 2>&1 < /dev/null &
 cd../
 cd sandcat
 ./update-agents.sh
