@@ -27,7 +27,7 @@ while true; do
 done
 
 
-DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y install python3 python3-pip git curl zip unzip upx golang haproxy zlib1g docker -y
+DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y install python3 python3-pip git curl zip unzip upx golang haproxy zlib1g gnome-terminal docker -y
 
 echo "Red Team Password: "
 read -s redpasswordvar
@@ -66,8 +66,8 @@ pluginDirectory=$(pwd) >> /dev/null
 cd builder
 #bash -c './install.sh'
 #setsid install.sh >/dev/null 2>&1 < /dev/null &
-( exec "${pluginDirectory}/builder/install.sh" )
-#gnome-terminal -e "bash -c ~/install.sh;bash"
+#( exec "${pluginDirectory}/builder/install.sh" )
+gnome-terminal -e "bash -c ~/install.sh;bash"
 cd $pluginDirectory
 #cd../
 cd sandcat
