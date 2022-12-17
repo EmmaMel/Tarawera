@@ -67,7 +67,7 @@ pip3 install -r requirements.txt
 cd plugins/emu
 ./download_payloads.sh
 cd ../
-cp -r emu/payloads/* emu/data/adversary-emulation-plans/*
+
 #pluginDirectory=$(pwd) >> /dev/null
 #cd builder
 sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' /etc/needrestart/needrestart.conf
@@ -97,7 +97,9 @@ apt-get update && apt-get install -y docker-ce docker-ce-cli containerd.io
 #cd../
 cd sandcat
 ./update-agents.sh
-cd ../..
+cd ../
+cp -r emu/payloads/* emu/data/adversary-emulation-plans/*
+cd ../
 
 echo "-------------------------------------------------------------------------------"
 echo "Tarawera installation complete!.......";
