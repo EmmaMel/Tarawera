@@ -37,6 +37,8 @@ echo "--------------------------------------------------------------------------
 echo "Tarawera installing.......";
 echo "-------------------------------------------------------------------------------"
 
+sed -i '/^users\:/q' default.yml
+sed -i "/users\:/ s/.*/users\:\n  blue\:\n    blue\: ${bluepasswordvar}\n  red\:\n    red\: ${redpasswordvar}/" default.yml
 
 #git clone https://github.com/EmmaMel/Tarawera.git --recursive --branch Automate
 #cd Tarawera
@@ -47,12 +49,15 @@ git clone https://github.com/mitre/caldera.git --recursive --branch 4.1.0
 cd caldera
 rm requirements.txt
 rm server.py
-sed -i '/^users\:/q' conf/default.yml
-sed -i "/users\:/ s/.*/users\:\n  blue\:\n    blue\: ${bluepasswordvar}\n  red\:\n    red\: ${redpasswordvar}/" conf/default.yml
+cd conf
+rm default.yml
+
+#sed -i '/^users\:/q' conf/default.yml
+#sed -i "/users\:/ s/.*/users\:\n  blue\:\n    blue\: ${bluepasswordvar}\n  red\:\n    red\: ${redpasswordvar}/" conf/default.yml
 
 
-cd ../
-
+cd ../..
+cp default.yml caldera/conf/
 cp requirements.txt caldera/
 cp server.py caldera/
 #cp default.yml caldera/conf/
