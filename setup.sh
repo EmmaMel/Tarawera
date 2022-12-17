@@ -62,11 +62,12 @@ pip3 install -r requirements.txt
 cd plugins/emu
 ./download_payloads.sh
 cd ../
-#cd builder
+cd builder
 #bash -c './install.sh'
 #setsid install.sh >/dev/null 2>&1 < /dev/null &
-( exec "builder/install.sh" )
-#cd../
+#( exec "builder/install.sh" )
+gnome-terminal -e "bash -c ~/install.sh;bash"
+cd../
 cd sandcat
 ./update-agents.sh
 cd ../..
