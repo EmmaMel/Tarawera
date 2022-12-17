@@ -49,6 +49,7 @@ git clone https://github.com/mitre/caldera.git --recursive --branch 4.1.0
 cd caldera
 rm requirements.txt
 rm server.py
+git clone --depth 1 https://github.com/center-for-threat-informed-defense/adversary_emulation_library.git plugins/emu/data/adversary-emulation-plans
 cd conf
 rm default.yml
 
@@ -66,6 +67,10 @@ cd caldera
 pip3 install -r requirements.txt 
 cd plugins/emu
 ./download_payloads.sh
+
+
+
+
 cd ../
 
 #pluginDirectory=$(pwd) >> /dev/null
@@ -108,12 +113,4 @@ echo "Login details can be found in mitreCaldera/caldera/conf/default.yml"
 echo "-------------------------------------------------------------------------------"
 
 python3 server.py
-
-#if ./test1.sh | grep -q 'ITdept'; 
-if grep -q 'All systems ready.'; 
-then
-    echo "found"
-else
-    echo "Not found"
-fi
 
