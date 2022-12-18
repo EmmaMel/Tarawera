@@ -122,7 +122,7 @@ cd $calderaDirectory
 
 echo "-------------------------------------------------------------------------------"
 echo "Tarawera installation complete!.......";
-echo "Navigate to http://localhost:8888/ to access the web console."
+echo "Navigate to http://$IP:8888/ to access the web console."
 echo "Login details can be found in Tarawera/caldera/conf/default.yml"
 echo "To gracefully terminate the server, enter:"
 echo "   Ctrl C"
