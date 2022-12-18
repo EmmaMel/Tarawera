@@ -44,7 +44,7 @@ echo "--------------------------------------------------------------------------
 sed -i '/^users\:/q' default.yml
 sed -i "/users\:/ s/.*/users\:\n  blue\:\n    blue\: ${bluepasswordvar}\n  red\:\n    red\: ${redpasswordvar}/" default.yml
 IP=$(hostname -I)
-sed -i 's/0.0.0.0/${IP}/g' default.yml
+sed -i "s/0.0.0.0/$IP/g" default.yml
 
 #git clone https://github.com/EmmaMel/Tarawera.git --recursive --branch Automate
 #cd Tarawera
