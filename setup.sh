@@ -44,7 +44,8 @@ echo "--------------------------------------------------------------------------
 sed -i '/^users\:/q' default.yml
 sed -i "/users\:/ s/.*/users\:\n  blue\:\n    blue\: ${bluepasswordvar}\n  red\:\n    red\: ${redpasswordvar}/" default.yml
 
-IP=$(hostname -I)
+#IP=$(hostname -I)
+IP=$(hostname  -I | cut -f1 -d' ')
 IP="${IP%"${IP##*[![:space:]]}"}" 
 sed -i "s/0.0.0.0/$IP/g" default.yml
 
