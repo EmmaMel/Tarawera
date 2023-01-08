@@ -5,18 +5,11 @@
 
 These requirements are for the host machine running the Tarawera framework:
 
-* Any Linux, MacOS, or Windows OS
+* Linux Ubuntu Server 22.04 LTS
 
-If installing on a Unix host, ensure you have the following packages installed:
-* Docker version 20.10.17 or higher
+Please ensure you have the following packages installed:
 * git version 2.31.1 or higher
 
-If installing on a Windows host, ensure you have the following packages installed:
-* WSL 2.0 or higher
-* git version 2.31.1 or higher
-* Docker installed to WSL 2.0
-* WSL 2.0 Ubuntu 20.04 profile
-* git version 2.30 or higher on Ubuntu profile
 
 ## Installation
 
