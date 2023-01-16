@@ -1,4 +1,4 @@
-# Tarawera
+# TARAWERA
 
 
 ## Requirements
@@ -13,7 +13,7 @@ Please ensure you have the following packages installed:
 
 ## Installation
 
-Concise installation steps:
+Concise installation steps must be run as the root user:
 ```Bash
 git clone https://github.com/EmmaMel/Tarawera.git --recursive --branch Automate
 cd Tarawera
