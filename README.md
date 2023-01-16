@@ -3,7 +3,7 @@
 
 ## Requirements
 
-These requirements are for the host machine running the Tarawera framework:
+These requirements are for the host machine installing the TARAWERA framework:
 
 * Linux Ubuntu Server 22.04 LTS
 
